@@ -1,0 +1,24 @@
+hostNetwork: true
+
+service:
+  enabled: false
+
+ingressClass:
+  enabled: true
+
+ports:
+  web:
+    port: 8080
+    hostPort: 8080
+  websecure:
+    port: 8443
+    hostPort: 8443
+  traefik:
+    port: 9000
+    hostPort: 9000
+
+ingressRoute:
+  dashboard:
+    enabled: true
+  healthcheck:
+    enabled: true

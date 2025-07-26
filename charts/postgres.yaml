@@ -1,0 +1,30 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: postgres
+  namespace: argocd
+spec:
+  project: default
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+    automated:
+      selfHeal: true
+      prune: true
+  sources:
+    - chart: postgresql
+      repoURL: https://charts.bitnami.com/bitnami
+      targetRevision: 16.7.21
+      helm:
+        values: |
+          auth:
+            username: "todo"
+            database: "todo"
+            existingSecret: todolist-postgres-cred
+            secretKeys:
+              adminPasswordKey: postgres-password
+              userPasswordKey: password
+              replicationPasswordKey: ""
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: postgres

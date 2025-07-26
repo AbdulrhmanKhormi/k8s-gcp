@@ -1,0 +1,6 @@
+github.yaml
+scripts/
+charts/postgres-secret.yaml
+IaC/terraform.tfstate
+IaC/terraform.tfstate.backup
+IaC/.terraform/
