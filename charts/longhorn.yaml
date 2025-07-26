@@ -14,9 +14,9 @@ spec:
       targetRevision: v1.9.1
       helm:
         values: |
-          ingress:
-            enabled: true
-            host: longhorn.khormi.com
+          # ingress:
+          #   enabled: true
+          #   host: longhorn.khormi.com
           preUpgradeChecker:
             jobEnabled: false
   destination:
